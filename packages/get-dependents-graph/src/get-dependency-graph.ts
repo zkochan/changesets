@@ -60,6 +60,8 @@ export default function getDependencyGraph(
 
       const expected = match.packageJson.version;
 
+      if (['link:', 'link:.', 'file:', 'file:.'].includes(depVersion)) continue;
+
       if (depVersion.startsWith("workspace:")) {
         depVersion = depVersion.substr(10);
       }
